@@ -1,12 +1,13 @@
 import { gql } from "apollo-server";
 
 const typeDefs = gql`
-  type Example {
-    name: String
+  type Category {
+    name: String!;
+    id: ID!
   }
 
   type Query {
-    example: Example
+    categories: [Category]
   }
 `;
 
