@@ -1,3 +1,11 @@
-# we-accelerate-project
+# WE Accelerate Project Backend
 
-Team 38s WE accelerate project.
+## Available Scripts
+
+### `npm start:dev`
+
+Starts the backend using `nodemon` for development purposes.
+
+### `npm start`
+
+Start the backend normally using `node`.
