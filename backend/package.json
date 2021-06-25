@@ -12,8 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apollo-server": "^2.25.2",
+    "apollo-server-express": "^2.25.2",
     "esm": "^3.2.25",
+    "express": "^4.17.1",
     "graphql": "^15.5.1",
     "node-fetch": "^2.6.1"
   }
