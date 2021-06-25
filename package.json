@@ -1,0 +1,26 @@
+{
+  "name": "we-accelerate-project",
+  "version": "1.0.0",
+  "description": "Team 38s WE accelerate project.",
+  "main": "index.js",
+  "dependencies": {
+    "concurrently": "^6.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "frontend": "cd frontend && npm start",
+    "backend": "cd backend && npm run start:dev",
+    "dev": "concurrently --kill-others-on-fail \"npm run backend\" \"npm run frontend\"",
+    "heroku-postbuild": "cd backend && npm install && cd ../frontend && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/logan-darby/we-accelerate-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/logan-darby/we-accelerate-project/issues"
+  },
+  "homepage": "https://github.com/logan-darby/we-accelerate-project#readme"
+}

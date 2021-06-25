@@ -2,7 +2,7 @@
 
 ## Available Scripts
 
-### `npm start:dev`
+### `npm run start:dev`
 
 Starts the backend using `nodemon` for development purposes.
 
