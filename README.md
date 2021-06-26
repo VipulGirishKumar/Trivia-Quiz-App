@@ -8,4 +8,4 @@ Team 38s WE accelerate project.
 
 ### `npm run dev`
 
-Concurrently run both the frontend, and backend application. React front-end is available at `localhost:4000`, and GraphQL queries can be send to `localhost:400/api`.
+Concurrently run both the frontend, and backend application. React front-end is available at `localhost:4000`, and GraphQL queries can be send to `http://we-accelerate-project.herokuapp.com/api`.
