@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Team 38s WE accelerate project.",
   "main": "index.js",
-  "dependencies": {
-    "concurrently": "^6.2.0"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
     "frontend": "cd frontend && npm start",
