@@ -47,7 +47,7 @@ const GET_CATEGORIES = gql`
 function TestGraphQL() {
   const { loading, error, data } = useQuery(GET_CATEGORIES);
   console.log(data);
-  return <div>{data}</div>;
+  return <div>{JSON.stringify(data)}</div>;
 }
 ```
 
