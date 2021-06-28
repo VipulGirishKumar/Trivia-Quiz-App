@@ -6,7 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 // This initializes an ApolloClient, which will allow us to make GraphQl
-// queries easily.
+//  queries easily.
+// More information in ~/frontend/README.md
 const client = new ApolloClient({
   uri: "https://we-accelerate-project.herokuapp.com/api",
   cache: new InMemoryCache(),
