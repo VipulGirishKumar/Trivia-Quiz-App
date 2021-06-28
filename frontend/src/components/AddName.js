@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Hello from './Hello';
+
 
 const AddName = (props) => { 
     const [name, setName] = useState('');
@@ -8,7 +10,8 @@ const AddName = (props) => {
     };
 
     const handleAddName = () => {
-        console.log(name) // console log for now,
+        console.log(name);  // temporary
+        <Hello name={name}/>
     }
 
     return (
