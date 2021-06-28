@@ -8,7 +8,7 @@ const fetch = require("node-fetch");
 //can also specify question type if needed (mc or tf)
 function GetQuestions(amount, category, difficulty){
     return fetch(
-        `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}`
+        `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=boolean`
     )
     .then(response => response.json())
     .then(data => {
@@ -21,8 +21,8 @@ function GetQuestions(amount, category, difficulty){
 }
 
 //This is how to get the questions
-
 /*
+
 var questions;
 var numOfQs = 2;
 var cat = 0;
@@ -34,9 +34,9 @@ GetQuestions(numOfQs, cat, diff).then((data =>{
     for(var i = 0; i < numOfQs; i++){
         console.log(questions[i])
     }
-})); */
+})); 
 
-
+*/
 
 
 
