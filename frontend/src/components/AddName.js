@@ -1,26 +1,36 @@
-import React, { useState } from 'react';
-import Hello from './Hello';
+import React, { Component } from 'react';
+//import Hello from './Hello';
 
+class AddName extends Component {
+  state = {
+    name: '',
+    showName: false
+  }
 
-const AddName = (props) => { 
-    const [name, setName] = useState('');
+  HandleChangeName = (event) => {
+    let newName = event.target.value;
+    this.setState({ name: newName });
+  }
 
-    const handleChangeName = (event) => {
-        setName(event.target.value);
-    };
+  handleEnter = (event) => {
+    event.preventDefault(); // prevents browser from refreshing each time
+    this.setState({
+      showName: true
+    });
+  }
 
-    const handleAddName = () => {
-        console.log(name);  // temporary
-        <Hello name={name}/>
-    }
-
+  render() {
     return (
-        <div>
-            <h2>Please Enter your name</h2>
-            <input type='text' value ={name} onChange={handleChangeName} />
-            <button onClick={handleAddName}>Enter</button>
-        </div>
-    ); 
-};
-
+      <div>
+        <form onSubmit={this.handleEnter}>
+          <label>Please Enter Your Name: </label>
+          <input type="text" name="name" onChange={this.HandleChangeName} value={this.state.name} />
+          <button type="enter" onClick={this.handleEnter}>Enter</button>
+          {this.state.showName && <h2>Hello, {this.state.name}! Welcome to Team 38's Trivia!</h2>}
+        </form>
+      </div>
+    );
+  }
+}
 export default AddName;
+
