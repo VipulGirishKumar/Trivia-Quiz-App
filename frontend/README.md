@@ -1,6 +1,59 @@
-# Getting Started with Create React App
+# Frontend App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How to use Apollo Client to Make GraphQL Queries in React
+
+Apollo Client just makes it easy and consistent to make GraphQL queries to the backend server. Here's how to do it in a React Component:
+
+1. Make sure you `npm install` in the `./frontend` folder.
+2. Import these modules in the desired component
+   `import {useQuery, gql} from "@apollo/client"`
+3. Define your GraphQL query
+
+   ```jsx
+   const EXAMPLE_QUERY = gql`
+     query {
+       categories {
+         name
+         id
+       }
+     }
+   `;
+   ```
+
+4. In the component, fetch the data with `useQuery`
+
+   ```jsx
+   const { lodaing, error, data } = useQuery(EXAMPLE_QUERY);
+   ```
+
+5. That's it! `data` now stores the response.
+
+### Example
+
+Fetches categories from the API and returns the object in text form, as well as logging it in the console.
+
+```jsx
+import { gql, useQuery } from "@apollo/client";
+
+const GET_CATEGORIES = gql`
+  query {
+    categories {
+      name
+      id
+    }
+  }
+`;
+
+function TestGraphQL() {
+  const { loading, error, data } = useQuery(GET_CATEGORIES);
+  console.log(data);
+  return <div>{JSON.stringify(data)}</div>;
+}
+```
+
+### More Info
+
+<https://www.apollographql.com/docs/react/get-started/>
 
 ## Available Scripts
 

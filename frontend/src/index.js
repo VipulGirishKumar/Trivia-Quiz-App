@@ -1,14 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
+// This initializes an ApolloClient, which will allow us to make GraphQl
+//  queries easily.
+// More information in ~/frontend/README.md
+const client = new ApolloClient({
+  uri: "https://we-accelerate-project.herokuapp.com/api",
+  cache: new InMemoryCache(),
+});
+
+// The ApolloProvider sets everything up to be used with React
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
