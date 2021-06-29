@@ -37,6 +37,7 @@ const QuestionList = ({qs, cat, diff}) => {
   
   return (
     <>
+    {data.questions.length === 0 && (<h1>Not Enough Questions</h1>)}
     {renderQuestions(data)}
     </>
   );
