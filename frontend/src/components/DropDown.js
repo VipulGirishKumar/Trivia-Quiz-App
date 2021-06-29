@@ -34,17 +34,17 @@ const DropDown = () => {
 
   return (
     <>
-      <label for="categories">Choose a category: </label>
+      <label htmlFor="categories">Choose a category: </label>
       <select id="categories" ref={categoryIDInput}>
         {data.categories.map((category) => {
           return <option value={category.id}>{category.name}</option>;
         })}
       </select>
       <br />
-      <label for="number">How many questions: </label>
+      <label htmlFor="number">How many questions: </label>
       <input type="text" ref={numberOfQuestionsInput}></input>
       <br />
-      <label for="difficulty">What difficulty: </label>
+      <label htmlFor="difficulty">What difficulty: </label>
       <select id="difficulty" ref={difficultyInput}>
         <option value="0">Random</option>
         <option value="easy">Easy</option>
