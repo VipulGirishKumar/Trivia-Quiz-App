@@ -14,7 +14,7 @@ const typeDefs = gql`
 
   type Query {
     categories: [Category]
-    questions(amount: Int!; categoryID: ID!, difficulty: String!): [Question]
+    questions(amount: Int!, categoryID: ID!, difficulty: String!): [Question]
   }
 `;
 
