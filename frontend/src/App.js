@@ -11,7 +11,6 @@ function App() {
         <h1>Quiz!</h1>
       </div>
       <DropDown />
-      <QuestionList />
       <Quiz />
     </div>
   );

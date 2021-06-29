@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Question from "./Question.js";
-import data from "../data.js";
+import he from "he"
 
 import { gql, useQuery } from "@apollo/client";
 const getQuestionsQuery = (amount, categoryID, difficulty) => {
@@ -13,6 +13,7 @@ const getQuestionsQuery = (amount, categoryID, difficulty) => {
     `;
 };
 
+
 /*
 // Then in your componenet:
 function ExampleComponent(props) {
@@ -21,19 +22,24 @@ function ExampleComponent(props) {
     // data now contains the question string, the correct answer, and the incorrect answers (an array)
 }*/
 
-const QuestionList = () => {
-  const { loading, error, data } = useQuery(getQuestionsQuery(1, 10, "easy"));
-  if (loading) return "Loading...";
-  if (error) return `Error! ${error.message}`;
+const renderQuestions = (data) => {
+  return data.questions.map((question, index) => <Question id={index} q={question.question} a={question.answer}/>);
+}
 
+const QuestionList = () => {
+  const { loading, error, data } = useQuery(getQuestionsQuery(10, 0, "easy"));
+  if (loading || !data) {
+    return <p>Loading</p>;
+  }
+  if (error) {
+    return <p>Error :(</p>;
+  }
+
+  
+  
   return (
     <>
-      <div>
-        <Question id="1" />
-      </div>
-      <div>
-        <Question id="2" />
-      </div>
+    {renderQuestions(data)}
     </>
   );
 };
