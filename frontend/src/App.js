@@ -1,6 +1,7 @@
 import "./App.css";
 import Quiz from "./components/Quiz.js";
 import DropDown from "./components/DropDown";
+import QuestionList from "./components/QuestionList";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <h1>Quiz!</h1>
       </div>
       <DropDown />
+      <QuestionList />
       <Quiz />
     </div>
   );
