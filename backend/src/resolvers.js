@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+import { GetQuestions } from "./getQuestions.js";
 import { CATEGORIES_URL } from "./constants.js";
 
 const resolvers = {
@@ -10,6 +11,10 @@ const resolvers = {
       );
       console.log(categoriesData);
       return categoriesData.trivia_categories;
+    },
+
+    questions(_, { amount, categoryID, difficulty }) {
+      return GetQuestions(amount, categoryID, difficulty);
     },
   },
 };
