@@ -6,7 +6,7 @@ const fetch = require("node-fetch");
 //category is 0 for any category, for a specific category visit the apis site for info
 //difficulty can be 'easy' 'medium' 'hard' or 0
 //can also specify question type if needed (mc or tf)
-function GetQuestions(amount, category, difficulty){
+/*function GetQuestions(amount, category, difficulty){
     return fetch(
         `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=boolean`
     )
@@ -21,9 +21,42 @@ function GetQuestions(amount, category, difficulty){
 }
 
 //This is how to get the questions
-/*
+*/
+fetch(
+    'https://opentdb.com/api.php?amount=10'
+)
+    .then((response) => {
+        return response.json();
+    })
+    .then((GetQuestions) => {
+        console.log
+        questions = GetQuestions.results.map((GetQuestion) => {
+            const formattedQuestion = {
+                question: GetQuestion.question,
+            };
 
-var questions;
+            const answerChoices = [...GetQuestion.incorrect_answer];
+            formattedQuestion.answer = Math.floor(Math.random() * 1) + 1;
+            answerChoices.splice(
+                formattedQuestion.answer - 1,
+                0,
+                GetQuestion.correct_answer
+            );
+
+            answerChoices.forEach((choice, index) => {
+                formattedQuestion["choice" + (index + 1)] = choice;
+            });
+
+            return formattedQuestion;
+        });
+
+
+
+
+
+
+// I think I do not need this
+/*var questions;
 var numOfQs = 2;
 var cat = 0;
 var diff = `easy`;
@@ -35,8 +68,4 @@ GetQuestions(numOfQs, cat, diff).then((data =>{
         console.log(questions[i])
     }
 })); 
-
 */
-
-
-
