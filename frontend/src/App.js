@@ -1,5 +1,6 @@
 import "./App.css";
-import Quiz from './components/Quiz.js';
+import Quiz from "./components/Quiz.js";
+import DropDown from "./components/DropDown";
 
 function App() {
   return (
@@ -8,7 +9,8 @@ function App() {
         <h1>Hello World!</h1>
         <h1>Quiz!</h1>
       </div>
-      <Quiz/>
+      <DropDown />
+      <Quiz />
     </div>
   );
 }
