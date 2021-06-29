@@ -14,7 +14,7 @@ const Question = ({id}) => {
             <div>
                 <input type="radio" id="false" name={id} value="false">
                 </input>
-                <label htmlFor="true">False</label>
+                <label htmlFor="false">False</label>
             </div>
 	    </div>
     </div>;
