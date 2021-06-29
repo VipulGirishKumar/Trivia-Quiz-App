@@ -12,13 +12,10 @@ const GET_CATEGORIES = gql`
 `;
 
 const DropDown = () => {
-  const handleLockSettings = () => {
-    console.log(); // temporary
-  };
   // The state variables are stored here
-  const [numberOfQuestions, setNumberOfQuestions] = useState(10);
+  const [numberOfQuestions, setNumberOfQuestions] = useState(0);
   const [categoryID, setCategoryID] = useState(9);
-  const [difficulty, setDifficulty] = useState("easy");
+  const [difficulty, setDifficulty] = useState("0");
   // References to the inputs
   const categoryIDInput = useRef(null);
   const numberOfQuestionsInput = useRef(null);
@@ -30,13 +27,11 @@ const DropDown = () => {
     setCategoryID(categoryIDInput.current.value);
   };
 
+  // Fetches category data
   const { loading, error, data } = useQuery(GET_CATEGORIES);
-  if (loading || !data) {
-    return <p>Loading</p>;
-  }
-  if (error) {
-    return <p>Error :(</p>;
-  }
+  if (loading || !data) return <p>Loading</p>;
+  if (error) return <p>Error :(</p>;
+
   return (
     <>
       <label for="categories">Choose a category: </label>
@@ -45,10 +40,10 @@ const DropDown = () => {
           return <option value={category.id}>{category.name}</option>;
         })}
       </select>
-      <br></br>
+      <br />
       <label for="number">How many questions: </label>
       <input type="text" ref={numberOfQuestionsInput}></input>
-      <br></br>
+      <br />
       <label for="difficulty">What difficulty: </label>
       <select id="difficulty" ref={difficultyInput}>
         <option value="0">Random</option>
@@ -56,16 +51,11 @@ const DropDown = () => {
         <option value="medium">Medium</option>
         <option value="hard">Hard</option>
       </select>
-      <br></br>
+      <br />
       <button onClick={() => updateStateVariables()}>Begin</button>
-      <br></br>
-      {numberOfQuestions && categoryID && difficulty && (
-        <QuestionList
-          qs={numberOfQuestions}
-          cat={categoryID}
-          diff={difficulty}
-        />
-      )}
+      <br />
+      <QuestionList qs={numberOfQuestions} cat={categoryID} diff={difficulty} />
+      )
     </>
   );
 };
