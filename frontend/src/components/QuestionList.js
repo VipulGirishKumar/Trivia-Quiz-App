@@ -26,16 +26,14 @@ const renderQuestions = (data) => {
   return data.questions.map((question, index) => <Question id={index} q={question.question} a={question.answer}/>);
 }
 
-const QuestionList = () => {
-  const { loading, error, data } = useQuery(getQuestionsQuery(10, 0, "easy"));
+const QuestionList = ({qs, cat, diff}) => {
+  const { loading, error, data } = useQuery(getQuestionsQuery(qs, cat, diff));
   if (loading || !data) {
     return <p>Loading</p>;
   }
   if (error) {
     return <p>Error :(</p>;
   }
-
-  
   
   return (
     <>

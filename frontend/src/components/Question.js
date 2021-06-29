@@ -1,5 +1,4 @@
 import React from 'react';
-import data from '../data';
 import he from 'he'; //run npm install he
 
 const Question = ({id, q, a}) => {

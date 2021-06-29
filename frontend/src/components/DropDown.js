@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
+import QuestionList from "./QuestionList";
+
 
 const GET_CATEGORIES = gql`
   query GET_CATEGORIES {
@@ -62,12 +64,17 @@ const DropDown = () => {
         id="difficulty"
         onChange={(e) => handleDifficultyChange(e)}
       >
+        <option value="0">Random</option>
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>
         <option value="hard">Hard</option>
       </select>
       <br></br>
       <button onClick={handleLockSettings}>Begin</button>
+      <br></br>
+      {numberOfQuestions&&categoryID&&difficulty&&(
+        <QuestionList qs={numberOfQuestions} cat={categoryID} diff={difficulty}/>
+      )}
     </>
   );
 };
