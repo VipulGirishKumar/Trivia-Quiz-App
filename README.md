@@ -10,4 +10,12 @@ Team 38s WE accelerate project.
 
 Concurrently run both the frontend, and backend application. React front-end is available at `localhost:4000`, and the GraphQL Playground is available at `localhost:4000/api`
 
-**NOTE**: You must run `npm install -g concurrently` before running this command
+**NOTE**: You must run `npm install -g concurrently` before running this command. If you're on mac it might not work.
+
+### `npm run frontend`
+
+Runs the frontend client
+
+### `npm run backend`
+
+Runs the backend server
