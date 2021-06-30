@@ -55,7 +55,6 @@ const DropDown = () => {
       <button onClick={() => updateStateVariables()}>Begin</button>
       <br />
       <QuestionList qs={numberOfQuestions} cat={categoryID} diff={difficulty} />
-      )
     </>
   );
 };
