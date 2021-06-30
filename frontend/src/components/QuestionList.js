@@ -23,7 +23,7 @@ function ExampleComponent(props) {
 }*/
 
 const renderQuestions = (data) => {
-  return data.questions.map((question, index) => <Question id={index} q={question.question} a={question.answer}/>);
+  return data.questions.map((question, index) => <Question id={index} q={question.question} a={question.correct_answer}/>);
 }
 
 const QuestionList = ({qs, cat, diff}) => {
