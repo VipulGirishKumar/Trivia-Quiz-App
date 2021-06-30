@@ -18,17 +18,31 @@ const DropDown = () => {
     categoryID: 9,
     difficulty: "0",
   });
+
   // References to the inputs
   const categoryIDInput = useRef(null);
   const numberOfQuestionsInput = useRef(null);
   const difficultyInput = useRef(null);
+
+  // Validates the form input
+  const validFormInputs = () => {
+    const numberOfQuestions = numberOfQuestionsInput.current.value;
+    if (!isNormalInteger(numberOfQuestions)) {
+      alert("Must input a positive integer");
+      return false;
+    }
+    return true;
+  };
+
   // Updates the state variables
   const updateStateVariables = () => {
-    setFormInputs({
-      numberOfQuestions: numberOfQuestionsInput.current.value,
-      difficulty: difficultyInput.current.value,
-      categoryID: categoryIDInput.current.value,
-    });
+    if (validFormInputs()) {
+      setFormInputs({
+        numberOfQuestions: numberOfQuestionsInput.current.value,
+        difficulty: difficultyInput.current.value,
+        categoryID: categoryIDInput.current.value,
+      });
+    }
   };
 
   // Fetches category data
@@ -66,5 +80,15 @@ const DropDown = () => {
     </>
   );
 };
+
+function isNormalInteger(str) {
+  str = str.trim();
+  if (!str) {
+    return false;
+  }
+  str = str.replace(/^0+/, "") || "0";
+  var n = Math.floor(Number(str));
+  return n !== Infinity && String(n) === str && n >= 0;
+}
 
 export default DropDown;
