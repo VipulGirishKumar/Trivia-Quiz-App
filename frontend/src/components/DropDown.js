@@ -13,18 +13,36 @@ const GET_CATEGORIES = gql`
 
 const DropDown = () => {
   // The state variables are stored here
-  const [numberOfQuestions, setNumberOfQuestions] = useState(0);
-  const [categoryID, setCategoryID] = useState(9);
-  const [difficulty, setDifficulty] = useState("0");
+  const [formInputs, setFormInputs] = useState({
+    numberOfQuestions: 0,
+    categoryID: 9,
+    difficulty: "0",
+  });
+
   // References to the inputs
   const categoryIDInput = useRef(null);
   const numberOfQuestionsInput = useRef(null);
   const difficultyInput = useRef(null);
+
+  // Validates the form input
+  const validFormInputs = () => {
+    const numberOfQuestions = numberOfQuestionsInput.current.value;
+    if (!isNormalInteger(numberOfQuestions)) {
+      alert("Must input a positive integer");
+      return false;
+    }
+    return true;
+  };
+
   // Updates the state variables
   const updateStateVariables = () => {
-    setNumberOfQuestions(numberOfQuestionsInput.current.value);
-    setDifficulty(difficultyInput.current.value);
-    setCategoryID(categoryIDInput.current.value);
+    if (validFormInputs()) {
+      setFormInputs({
+        numberOfQuestions: numberOfQuestionsInput.current.value,
+        difficulty: difficultyInput.current.value,
+        categoryID: categoryIDInput.current.value,
+      });
+    }
   };
 
   // Fetches category data
@@ -54,9 +72,23 @@ const DropDown = () => {
       <br />
       <button onClick={() => updateStateVariables()}>Begin</button>
       <br />
-      <QuestionList qs={numberOfQuestions} cat={categoryID} diff={difficulty} />
+      <QuestionList
+        qs={formInputs.numberOfQuestions}
+        cat={formInputs.categoryID}
+        diff={formInputs.difficulty}
+      />
     </>
   );
 };
+
+function isNormalInteger(str) {
+  str = str.trim();
+  if (!str) {
+    return false;
+  }
+  str = str.replace(/^0+/, "") || "0";
+  var n = Math.floor(Number(str));
+  return n !== Infinity && String(n) === str && n >= 0;
+}
 
 export default DropDown;
