@@ -1,8 +1,4 @@
-# WE Accelerate Project
-
-Team 38s WE accelerate project.
-
-## Info for Submission
+# Trivia Quiz App Project
 
 Website is live at <https://we-accelerate-project.herokuapp.com/>
 
