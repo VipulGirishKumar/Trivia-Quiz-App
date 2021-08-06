@@ -12,7 +12,7 @@ Website is live at <https://we-accelerate-project.herokuapp.com/>
 
 Concurrently run both the frontend, and backend application. React front-end is available at `localhost:4000`, and the GraphQL Playground is available at `localhost:4000/api`
 
-**NOTE**: You must run `npm install -g concurrently` before running this command. If you're on mac it might not work.
+**NOTE**: You must run `npm install -g concurrently` before running this command. If you're on mac it might not work, then run the following separately.
 
 #### `npm run frontend`
 
